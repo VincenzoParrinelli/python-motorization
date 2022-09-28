@@ -3,18 +3,22 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from read_excel import read_excel
 from window import main_window
+import asyncio
 
-##main_window()
 
-sheet = read_excel()
-
-for i in range(22):
+if __name__ == "__main__":
     
-    val = sheet.cell(i + 10, 7).value
+    def main():
+       
+        main_window()
         
-    print(val)
+    main()
+       
+    
         
-
+    
+# sheet = read_excel()
+        
 input("Premere invio per chiudere il programma...")
 
 # driver = webdriver.Firefox()
