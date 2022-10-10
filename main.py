@@ -1,10 +1,10 @@
-from window import Window
+from window import open_window
 
 if __name__ == "__main__":
     
     def main():
        
-        Window()
+        open_window()
         
     main()
         

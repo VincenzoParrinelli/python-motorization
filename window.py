@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter.filedialog import askopenfile
-from selenium_utils import open_website, read_excel_and_insert_candidates
+from selenium_utils import open_website, read_excel
 
 def open_window():
         
@@ -22,8 +22,8 @@ def open_window():
     
     read_excel_button.grid(column=2, row=5)
     
-    #INSERIRE CONTROLLO PAGINA TRAMITE URL
-    start_button = tk.Button(root, text="Avvia automazione", command=lambda:read_excel_and_insert_candidates())
+    #*********INSERIRE CONTROLLO PAGINA TRAMITE URL
+    start_button = tk.Button(root, text="Avvia automazione", command=lambda:read_excel())
     
     start_button.grid(column=3, row=5)
     
