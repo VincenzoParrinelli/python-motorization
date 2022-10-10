@@ -43,8 +43,11 @@ class Window:
             text_box.grid(column=1, row=7)
             
             
-    
+    def no_file_error():
         
+        text_box = tk.Label(root, width=60, height=1, text="Errore! Nessun file selezionato")
+        
+        text_box.grid(column=1, row=8)
 
 mainWindow = Window(root)    
     
