@@ -1,4 +1,3 @@
-from lib2to3.pgen2 import driver
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -12,11 +11,15 @@ def open_website():
     driver.get("https://www.ilportaledellautomobilista.it/web/portale-automobilista/loginspid")
 
 
-def read_excel():
+def automate(self):
     
-    df = pd.read_excel("items.xlsx", usecols="G,J", skiprows=range(0,8))
+    df = pd.read_excel(self.file, usecols="G,J", skiprows=range(0,8))
+    
+    print(df)
     
     driver.get("https://www.ilportaledellautomobilista.it/RichiestaPatenti/richiesta/Read_initAction.action?pageStatus=SEARCH&MENU=Ricerca")
+    
+    driver.implicitly_wait(3)
     
     for i in range(len(df)):
       
@@ -32,7 +35,7 @@ def read_excel():
 
 def insert_candidate(marca_operativa, ora_esame):
     
-    time.sleep(2)
+    driver.implicitly_wait(3)
     
     marca_operativa_input = driver.find_element(By.ID, "Read_initAction_richiestaView_richiestaFrom_marcaOperativa") 
     

@@ -1,10 +1,11 @@
-from window import open_window
+from window import mainWindow
 
 if __name__ == "__main__":
     
     def main():
        
-        open_window()
+        #window instance
+        mainWindow
         
     main()
         
