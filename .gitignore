@@ -6,3 +6,4 @@ dist
 build
 main.spec
 main.exe
+.env
