@@ -1,13 +1,9 @@
-from login import Login_window
-from window import main_window
+from window import Window
 
 if __name__ == "__main__":
-    
-    def main():
-       
-        #window instance
-        main_window
-        
-    main()
-        
+
+    app = Window()
+    app.run()
+
+
 input("Premere invio per chiudere il programma...")

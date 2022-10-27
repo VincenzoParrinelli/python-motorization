@@ -6,9 +6,10 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
-driver = webdriver.Firefox()
-
 def open_website():
+    
+    global driver 
+    driver = webdriver.Firefox()
     
     driver.get("https://www.ilportaledellautomobilista.it/web/portale-automobilista/loginspid")
 
@@ -37,8 +38,6 @@ def automate(self):
         insert_candidate(marca_operativa, ora_esame)
         
 
-#***********INSERIRE EXPLICIT WAIT (WebDriverWait, expected_conditions)************
-#***********CONTROLLO ERROR VIEW SECONDA TAB ************
 def insert_candidate(marca_operativa, ora_esame):
     
     marca_operativa_input = WebDriverWait(driver, 60).until(ec.presence_of_element_located((By.ID, "Read_initAction_richiestaView_richiestaFrom_marcaOperativa"))) 
@@ -81,21 +80,9 @@ def insert_candidate(marca_operativa, ora_esame):
             
             print(f"{codice_statino}\n") 
             
-            # spostati nell'altra tab******
+            # spostati nell'altra tab
             driver.switch_to.window(driver.window_handles[1])
             
-            # se il messaggio di errore è presente torna indietro ed elabora un'altra marca operativa
-            # try:
-                
-            #     WebDriverWait(driver, 2).until(ec.presence_of_element_located((By.XPATH, "/html/body/div[3]/div[2]/div/div/div")))
-                
-            #     indietro_btn = WebDriverWait(driver, 60).until(ec.presence_of_element_located((By.ID, "DisponibilitaSessioneEsameEP_button_value_backFromNew")))
-                
-            #     indietro_btn.click()
-                
-            #     driver.switch_to.window(driver.window_handles[0])
-            
-          
             nuovo_candidato_button = WebDriverWait(driver, 60).until(ec.presence_of_element_located((By.ID, "DettaglioDisponibilitaSessioneEsameEP_button_value_newCandidato"))) 
             
             nuovo_candidato_button.click()
@@ -166,12 +153,4 @@ def insert_candidate(marca_operativa, ora_esame):
                 driver.get("https://www.ilportaledellautomobilista.it/RichiestaPatenti/richiesta/Read_initAction.action?pageStatus=SEARCH&MENU=Ricerca")
             
         
-   
-   
-     
-    #wait.until(ec.text_to_be_present_in_element((By.XPATH, "/html/body/h1", text="")))
-  
-    #error = driver.find_element(By.XPATH, "/html/body/h1").get_attribute("Internal Server Error")
-    
-
             
